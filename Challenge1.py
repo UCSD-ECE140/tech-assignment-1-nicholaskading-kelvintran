@@ -32,10 +32,10 @@ class Subscriber:
         self.client.loop_stop()
 
     def on_subscribe(self, client, userdata, mid, granted_qos, properties=None):
-        print("Subscribed: " + str(mid) + " " + str(granted_qos))
+        print("SENT: " + str(mid) + " " + str(granted_qos))
 
     def on_message(self, client, userdata, msg):
-        print(f"SUBSCRIBED {msg.qos} [{msg.topic}] {msg.payload}")
+        print(f"RECEIVED {msg.qos} [{msg.topic}] {msg.payload}")
 
     def on_connect(self, client, userdata, flags, rc, properties=None):
         print("CONNACK received with code %s." % rc)
