@@ -401,7 +401,9 @@ if __name__ == "__main__":
                     client.publish(f"games/{lobby_name}/{player}/move",
                                    moving_direction_to_command(random_direction))
                 else:
-                    print("player trapped. critical error")
+                    client.publish(f"games/{lobby_name}/{player}/move",
+                                   moving_direction_to_command("UP"))
+                    print("player trapped. ignore")
 
             time.sleep(0.5)
 
